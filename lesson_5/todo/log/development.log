@@ -2255,3 +2255,218 @@ Processing by AboutController#index as HTML
 Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 1746)
 
 
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:54:35 +0300
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "todo_development" does not exist
+):
+  
+activerecord (6.1.6.1) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.6.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.6.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.6.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.6.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.6.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.6.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.6.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.6.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.6.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.6.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.6.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.6.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.6.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.6.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.6.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.6.1) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
+railties (6.1.6.1) lib/rails/engine.rb:539:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (369.2ms)[0m  [1m[35mCREATE DATABASE "todo_development" ENCODING = 'unicode'[0m
+  [1m[35m (624.2ms)[0m  [1m[35mCREATE DATABASE "todo_test" ENCODING = 'unicode'[0m
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:16 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 571)
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 10850)
+Completed 200 OK in 84ms (Views: 82.4ms | ActiveRecord: 0.0ms | Allocations: 12716)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:18 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 324)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1987)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 2811)
+
+
+Started GET "/help" for 127.0.0.1 at 2022-08-05 22:55:20 +0300
+Processing by AboutController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/help.html.erb within layouts/application
+  Rendered about/help.html.erb within layouts/application (Duration: 0.6ms | Allocations: 218)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1620)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 2025)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:22 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1505)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 1753)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:23 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1507)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 1756)
+
+
+Started GET "/help" for 127.0.0.1 at 2022-08-05 22:55:24 +0300
+Processing by AboutController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/help.html.erb within layouts/application
+  Rendered about/help.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 1504)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:25 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 1506)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 1749)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:27 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1504)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:29 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1506)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 1749)
+
+
+Started GET "/help" for 127.0.0.1 at 2022-08-05 22:55:30 +0300
+Processing by AboutController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/help.html.erb within layouts/application
+  Rendered about/help.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1504)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:32 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 1506)
+Completed 200 OK in 47ms (Views: 46.7ms | ActiveRecord: 0.0ms | Allocations: 1750)
+
+
+Started GET "/help" for 127.0.0.1 at 2022-08-05 22:55:33 +0300
+Processing by AboutController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/help.html.erb within layouts/application
+  Rendered about/help.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1504)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:35 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 1504)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-05 22:55:37 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1506)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 1749)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:39 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 1504)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
+Started GET "/help" for 127.0.0.1 at 2022-08-05 22:55:40 +0300
+Processing by AboutController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/help.html.erb within layouts/application
+  Rendered about/help.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 1504)
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 1748)
+
+
+Started GET "/about" for 127.0.0.1 at 2022-08-05 22:55:41 +0300
+Processing by AboutController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering about/index.html.erb within layouts/application
+  Rendered about/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1504)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 1747)
+
+
