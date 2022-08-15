@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_811_170_344) do
+ActiveRecord::Schema.define(version: 20_220_815_074_726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20_220_811_170_344) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'role_id', comment: 'Роль пользователя'
+    t.jsonb 'settings', default: {}, comment: 'Индивидуальные параметры пользователя'
+    t.integer 'state', comment: 'Статусная модель пользователя'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['name'], name: 'index_users_on_name', unique: true
   end

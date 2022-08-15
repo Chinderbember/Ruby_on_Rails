@@ -6,4 +6,12 @@ namespace :dbtasks do
     Rake::Task['environment'].invoke
     TestDataGenerator.fill(args[:number].to_i)
   end
+
+  desc "Clean all lines and reset id counters in db's tables"
+  task deep_clean: :environment do
+    sql = <<-HERE
+    TRUNCATE roles, users, events, items RESTART IDENTITY;
+    HERE
+    ActiveRecord::Base.connection.execute(sql)
+  end
 end

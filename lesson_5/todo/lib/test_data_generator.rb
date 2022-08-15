@@ -30,8 +30,7 @@ class TestDataGenerator
     # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
     def create_model(klass, params)
-      model_obj = klass.new(params)
-      model_obj.save if model_obj.valid?
+      klass.create!(params)
     end
   end
 end
