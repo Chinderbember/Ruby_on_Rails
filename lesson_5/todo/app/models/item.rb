@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :event_id, presence: true
+
+  belongs_to :event
 end

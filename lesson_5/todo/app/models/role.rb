@@ -5,4 +5,6 @@ class Role < ApplicationRecord
   validates :name, uniqueness: true
   validates :code, presence: true
   validates :code, uniqueness: true
+
+  has_many :users
 end

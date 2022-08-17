@@ -12,9 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_815_074_726) do
+ActiveRecord::Schema.define(version: 20_220_817_104_042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'comments', comment: 'Комментарии пользователей к делам', force: :cascade do |t|
+    t.text 'content', comment: 'Содержимое комментария'
+    t.bigint 'user_id', comment: 'Внешний ключ для связи с таблицей users'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'commentable_type', null: false
+    t.bigint 'commentable_id', null: false
+    t.index %w[commentable_type commentable_id], name: 'index_comments_on_commentable'
+    t.index ['user_id'], name: 'index_comments_on_user_id'
+  end
 
   create_table 'events', comment: 'Список дел', force: :cascade do |t|
     t.string 'name', comment: 'Заголовок'
@@ -53,10 +64,12 @@ ActiveRecord::Schema.define(version: 20_220_815_074_726) do
     t.integer 'role_id', comment: 'Роль пользователя'
     t.jsonb 'settings', default: {}, comment: 'Индивидуальные параметры пользователя'
     t.integer 'state', comment: 'Статусная модель пользователя'
+    t.integer 'events_count'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['name'], name: 'index_users_on_name', unique: true
   end
 
+  add_foreign_key 'comments', 'users'
   add_foreign_key 'events', 'users'
   add_foreign_key 'items', 'events'
   add_foreign_key 'users', 'roles'

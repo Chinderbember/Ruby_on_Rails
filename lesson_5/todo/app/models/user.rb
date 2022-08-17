@@ -19,4 +19,16 @@ class User < ApplicationRecord
     actived: 4,
     disabled: 5
   }
+
+  belongs_to :role
+  has_many :events
+  has_many :comments
+  has_many :commented_events,
+           through: :comments,
+           source: :commentable,
+           source_type: :Event
+  has_many :commented_users,
+           through: :comments,
+           source: :commentable,
+           source_type: :User
 end
