@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  before_validation :normalize_email, if: proc { |u| u.email.present? }
+
+  private
+
+  def normalize_email
+    self.mail = email.downcase
+  end
+
   validates :name, presence: true
   validates :name, length: { maximum: 16, minimum: 2 }
   validates :name, uniqueness: true
@@ -21,8 +29,8 @@ class User < ApplicationRecord
   }
 
   belongs_to :role
-  has_many :events
-  has_many :comments
+  has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :commented_events,
            through: :comments,
            source: :commentable,

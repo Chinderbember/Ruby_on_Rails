@@ -15,13 +15,15 @@ Role.destroy_all
 
 role = Role.create!(name: 'Пользователь', code: :default)
 
+# rubocop:disable Style/HashSyntax
 hash_users = 10.times.map do
   {
     name: FFaker::Internet.user_name[0..15],
     email: FFaker::Internet.safe_email,
-    role:
+    role: role
   }
 end
+# rubocop:enable Style/HashSyntax
 
 users = User.create! hash_users
 

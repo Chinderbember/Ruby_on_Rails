@@ -12,7 +12,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_817_104_042) do
+# rubocop:disable Style/NumericLiterals
+ActiveRecord::Schema.define(version: 2022_08_17_104042) do
+  # rubocop:enable Style/NumericLiterals
+
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
