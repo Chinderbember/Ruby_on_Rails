@@ -1,0 +1,133 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/event.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          2,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/user.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          18,
+          null,
+          1,
+          null,
+          1,
+          17,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/role.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/app/models/item.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/lib/test_homework.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/admin-ubuntu/Desktop/Ruby_on_Rails_part_1/lesson_5/todo/lib/test_homework/user.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1661693412
+  }
+}

@@ -10,6 +10,7 @@ def generator_set
     g.helper false
     g.stylesheets false
     g.javascripts false
+    g.factory_bot dir: 'spec/factories'
   end
 end
 

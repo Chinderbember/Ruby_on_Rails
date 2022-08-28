@@ -6,7 +6,7 @@ class User < ApplicationRecord
   private
 
   def normalize_email
-    self.mail = email.downcase
+    self.email = email.downcase
   end
 
   validates :name, presence: true
