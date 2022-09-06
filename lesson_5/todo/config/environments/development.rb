@@ -5,13 +5,33 @@ require 'active_support/core_ext/integer/time'
 def generator_set
   config.generators do |g|
     g.orm :active_record
-    # g.template_engine :slim
+    g.template_engine :slim
     g.test_framework nil
     g.helper false
     g.stylesheets false
     g.javascripts false
     g.factory_bot dir: 'spec/factories'
   end
+end
+
+def cache_settings_set
+  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+    cache_settings_if_actions
+  else
+    config.action_controller.perform_caching = false
+
+    config.cache_store = :null_store
+  end
+end
+
+def cache_settings_if_actions
+  config.action_controller.perform_caching = true
+  config.action_controller.enable_fragment_cache_logging = true
+
+  config.cache_store = :memory_store
+  config.public_file_server.headers = {
+    'Cache-Control' => "public, max-age=#{2.days.to_i}"
+  }
 end
 
 Rails.application.configure do
@@ -30,19 +50,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
-    config.action_controller.perform_caching = true
-    config.action_controller.enable_fragment_cache_logging = true
-
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
-    }
-  else
-    config.action_controller.perform_caching = false
-
-    config.cache_store = :null_store
-  end
+  cache_settings_set
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -77,6 +85,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   generator_set

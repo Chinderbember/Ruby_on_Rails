@@ -13,14 +13,23 @@ Event.destroy_all
 User.destroy_all
 Role.destroy_all
 
-role = Role.create!(name: 'Пользователь', code: :default)
+default_role = Role.create!(name: 'Пользователь', code: :default)
+admin_role = Role.create!(name: 'Администратор', code: :admin)
+
+admin_email = 'admin@example.com'
+User.create! name: 'Администратор',
+             email: admin_email,
+             password: admin_email,
+             role: admin_role
 
 # rubocop:disable Style/HashSyntax
 hash_users = 10.times.map do
+  email = FFaker::Internet.safe_email
   {
     name: FFaker::Internet.user_name[0..15],
-    email: FFaker::Internet.safe_email,
-    role: role
+    email: email,
+    password: email,
+    role: default_role
   }
 end
 # rubocop:enable Style/HashSyntax

@@ -1,0 +1,64 @@
+ru:
+  label:
+    log_in: Вход
+    log_out: Выход
+    show: Просмотр
+    back: Назад
+    hello: Привет, %s!
+    registration: Регистрация
+    admin_panel: Панель управления пользователями и статистика
+    edit: Редактировать
+    delete: Удалить
+    edit_account: Редактировать профиль
+    about_us: О нас
+    main_page: Главная страница
+    help: Помощь
+    about_header: TODO-приложение для ведения списка дел.
+    index_admin_users_control_header: Пользователи
+    index_task_header: Задачи
+    edit_user_header: Редактирование пользователя
+    edit_task_header: Редактирование задачи
+    confirm: Подтвердить
+    confirm_account: Подтвердить аккаунт 
+    sign_up: Зарегистрироваться
+    forgot_password?: Забыли ваш пароль?
+    name: Имя
+    content: Описание
+    done:  Выполнено
+    items: Пункты
+    role: Роль
+    new_event: Создать новую задачу
+    new_user: Создать нового пользователя
+  page_messages:
+    help_page:
+      not_ready: Данный раздел находится в разработке, так как функционал приложения не реализован.
+    about_page:
+      app_allows: Приложение позволяет
+      point_fst: Cоздавать запись о деле, предоставляя возможность задать название, описание и дату предстоящего дела;
+      point_snd: Редактировать уже созданные ранее дела (исправлять ошибки, корректировать дату);
+      point_thd: Удалять дела, созданные по ошибке;
+      point_fth: Отмечать дело как выполненное
+    index_admin_users_control:
+      user_name: Имя пользователя
+      total_events: Всего задач
+      events_done:  Задач выполнено
+      events_not_done:  Задач не выполнено
+  mailer:
+    confirm_instructions:
+      statement_fst: Вы можете подтвердить email, перейдя по ссылке ниже
+  activerecord:
+    errors:
+      messages:
+        blank: обязательно для заполнения
+        too_short: слишком коротко
+
+      models:
+        user: Пользователи
+        post: Сообщения
+      attributes:
+        user:
+          password:              Пароль
+          password_confirmation: Подтверждение
+          email:                 Email
+          name:                  Имя пользователя
+

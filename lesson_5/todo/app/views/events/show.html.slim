@@ -1,0 +1,24 @@
+p#notice
+  = notice
+p
+  strong
+    = t('label.name') + ': ' + @event.name
+p
+  strong
+    = t('label.content') + ': ' + @event.content
+p
+  strong
+    = t('label.done') + ": #{@event.done}"
+p
+  strong
+    = t('label.items') + ': '
+  table
+    - @event.items.order(:created_at).each_with_index do |item, i|
+      tr
+        td
+          = i + 1
+        td
+          = item.name
+= link_to t('label.edit'), edit_event_path(@event)
+|  | 
+= link_to t('label.back'), events_path

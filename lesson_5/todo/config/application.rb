@@ -4,6 +4,7 @@ require_relative 'boot'
 
 require 'rails'
 # Pick the frameworks you want:
+require 'action_mailer/railtie'
 require 'active_model/railtie'
 require 'active_job/railtie'
 require 'active_record/railtie'
@@ -31,7 +32,8 @@ module Todo
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.i18n.default_locale = :ru
+    config.time_zone = 'Moscow'
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.

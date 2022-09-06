@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable
   before_validation :normalize_email, if: proc { |u| u.email.present? }
+  after_initialize :set_default_role
+
+  Role.find_each do |role|
+    define_method "#{role.code}?" do
+      role_id == role.id
+    end
+  end
 
   private
 
@@ -9,13 +20,13 @@ class User < ApplicationRecord
     self.email = email.downcase
   end
 
+  def set_default_role
+    self.role_id ||= Role.find_by(code: :default).id
+  end
+
   validates :name, presence: true
   validates :name, length: { maximum: 16, minimum: 2 }
   validates :name, uniqueness: true
-
-  scope :default, -> { where(role_id: Role.find_by(code: :default).id) }
-  scope :fresh, ->(created_at) { where('created_at > ?', created_at) }
-  scope :default_fresh, ->(created_at) { default.fresh(created_at) }
 
   store :settings, coder: JSON
   store_accessor :settings, :per_page, :time_zone, :show_help

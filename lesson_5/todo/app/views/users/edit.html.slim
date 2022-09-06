@@ -1,0 +1,8 @@
+h1 
+	= t('label.edit_user_header')
+
+== render "form"
+
+=> link_to t('label.show'), @user
+'|
+=< link_to t('label.back'), users_path

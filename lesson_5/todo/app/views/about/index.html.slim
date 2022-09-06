@@ -1,0 +1,19 @@
+h1.main_header
+  | О нас
+p
+  = link_to t('label.main_page'), root_path
+  '
+  = link_to t('label.help'), help_path
+h1.main_header
+  = t('label.about_header')
+p
+  = t('page_messages.about_page.app_allows')
+ul.list
+  li
+    = t('page_messages.about_page.point_fst') 
+  li
+    = t('page_messages.about_page.point_snd')
+  li
+    = t('page_messages.about_page.point_thd')
+  li
+    = t('page_messages.about_page.point_fth')

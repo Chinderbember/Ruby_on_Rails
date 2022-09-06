@@ -1,0 +1,6 @@
+h1
+  = t('label.edit_task_header')
+= render 'form', event: @event
+= link_to t('label.show'), @event
+|  | 
+= link_to t('label.back'), events_path

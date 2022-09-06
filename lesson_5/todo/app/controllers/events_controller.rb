@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: %i[show edit update destroy]
 
   # GET /events or /events.json
   def index
-    @events = Event.includes(:items).page(params[:page]).per(3)
+    @events = policy_scope(Event).includes(:items).page(params[:page]).per(3)
   end
 
   # GET /events/1 or /events/1.json
-  def show; end
+  def show
+    authorize @event
+  end
 
   # GET /events/new
   def new
@@ -17,7 +20,9 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit; end
+  def edit
+    authorize @event
+  end
 
   # POST /events or /events.json
   def create
@@ -36,6 +41,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
+    authorize @event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_url(@event), notice: 'Event was successfully updated.' }
@@ -49,6 +55,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    authorize @event
     @event.destroy
 
     respond_to do |format|

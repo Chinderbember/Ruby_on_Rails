@@ -1,0 +1,35 @@
+p#notice
+  = notice
+h1
+  = t('label.index_admin_users_control_header')
+table.users_table
+  thead
+    tr
+      th
+        = t('page_messages.index_admin_users_control.user_name') 
+      th
+        = t('page_messages.index_admin_users_control.total_events')
+      th
+        = t('page_messages.index_admin_users_control.events_done')
+      th
+        = t('page_messages.index_admin_users_control.events_not_done')
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = user.name
+        td
+          = all_counter = user.events.size
+        td
+          =done_counter = (@done_events_amount[user.id] ? @done_events_amount[user.id] : 0 )
+        td
+          =all_counter - done_counter
+
+        td = link_to t('label.show'), user
+
+        td = link_to t('label.edit'), edit_user_path(user)
+
+        td = link_to t('label.delete'), destroy_user_path(user), data: {confirm: "Are you sure?"}
+          
+br
+= link_to t('label.new_user'), new_user_path
