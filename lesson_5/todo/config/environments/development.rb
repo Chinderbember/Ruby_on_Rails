@@ -1,38 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/integer/time'
-
-def generator_set
-  config.generators do |g|
-    g.orm :active_record
-    g.template_engine :slim
-    g.test_framework nil
-    g.helper false
-    g.stylesheets false
-    g.javascripts false
-    g.factory_bot dir: 'spec/factories'
-  end
-end
-
-def cache_settings_set
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
-    cache_settings_if_actions
-  else
-    config.action_controller.perform_caching = false
-
-    config.cache_store = :null_store
-  end
-end
-
-def cache_settings_if_actions
-  config.action_controller.perform_caching = true
-  config.action_controller.enable_fragment_cache_logging = true
-
-  config.cache_store = :memory_store
-  config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{2.days.to_i}"
-  }
-end
+require_relative '../../lib/dev_settings_part'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -50,7 +19,6 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  cache_settings_set
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -91,5 +59,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  extend DevSettingsPart
   generator_set
+  cache_settings_set
 end

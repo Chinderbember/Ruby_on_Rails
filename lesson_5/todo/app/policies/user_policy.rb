@@ -10,16 +10,16 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    condition
+    condition?
   end
 
   def update?
-    condition
+    condition?
   end
 
   private
 
-  def condition
+  def condition?
     ((record.id == user.id) && user.default?) ||
       ((record.id != user.id) && user.admin?)
   end

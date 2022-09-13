@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 # rubocop:disable Metrics/BlockLength
 RSpec.describe 'Класс TestHomework::User' do
-  n = 100
+  let(:n) { 100 }
 
   let(:attributes) do
     %i[surname name patronymic email]
   end
 
-  let(:test_homework_users_and_values) do
+  def test_homework_users_and_values
     values_arr = []
     users_arr = []
     n.times do |counter|

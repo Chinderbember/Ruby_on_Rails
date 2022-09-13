@@ -51,6 +51,7 @@ ru:
       messages:
         blank: обязательно для заполнения
         too_short: слишком коротко
+        record_invalid: Недопустимая запись
 
       models:
         user: Пользователи

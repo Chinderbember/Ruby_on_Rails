@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :roles
+  end
+  namespace :admin do
+    root 'users#index'
+    resources :users
+  end
   patch '/admin_users_control/show/:id', to: 'users#update'
   get '/admin_users_control/show/:id', to: 'users#show', as: 'user'
   get '/admin_users_control/new', to: 'users#new', as: 'new_user'
@@ -14,7 +21,10 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy', as: 'destroy_user_session_v2'
   end
 
-  resources :events
+  resources :events do
+    resources :items
+  end
+
   root 'events#index'
 
   get 'about', to: 'about#index', as: 'about'
