@@ -13,9 +13,11 @@ RSpec.describe User, type: :model do
   it {
     is_expected.to have_many(:commented_users)
       .through(:comments)
-      .source(:commentable) }
+      .source(:commentable)
+  }
   it {
     is_expected.to have_many(:commented_events)
       .through(:comments)
-      .source(:commentable) }
+      .source(:commentable)
+  }
 end

@@ -40,6 +40,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'letter_opener'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

@@ -3,6 +3,7 @@ AllCops:
   Exclude:
       - 'bin/bundle'
       - 'db/schema.rb'
+      - 'coverage/**/*'
 Style/Documentation:
   Enabled: false
   Exclude:

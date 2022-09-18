@@ -10,7 +10,8 @@ RSpec.describe Event, type: :model do
   it { is_expected.to have_many(:items).dependent(:destroy) }
   it { is_expected.to have_many(:comments).dependent(:destroy) }
   it {
-     is_expected.to have_many(:commentators)
-       .through(:comments)
-       .source(:user)}
+    is_expected.to have_many(:commentators)
+      .through(:comments)
+      .source(:user)
+  }
 end
