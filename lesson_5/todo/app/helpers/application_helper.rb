@@ -6,9 +6,8 @@ module ApplicationHelper
   end
 
   def list_tag(arr)
-    output = 'ul'
-    arr.each do |element|
-      output += "\n  li #{element}"
+    output = arr.reduce('ul') do |result, element|
+      result + "\n  li #{element}"
     end
     render inline: output, type: :slim
   end
