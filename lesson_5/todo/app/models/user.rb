@@ -50,4 +50,6 @@ class User < ApplicationRecord
            through: :comments,
            source: :commentable,
            source_type: :User
+  has_many :items,
+           through: :events
 end

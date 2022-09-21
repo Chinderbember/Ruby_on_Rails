@@ -1,20 +1,27 @@
-h1 Listing admin_users
+h1 = action_title(User, action_name)
 
 table cellspacing='0'
   thead
     tr
-      th
-      th
-      th
+      th = t('activerecord.errors.attributes.user.name')
+      th = t('activerecord.errors.attributes.user.email')
+      th = t('activerecord.errors.attributes.user.role')
+      th = t('page_messages.index_admin_users_control.total_events') 
+      th = t('page_messages.index_admin_users_control.total_items') 
+      th = t('page_messages.index_admin_users_control.total_comments')
       th
       th
 
   tbody
     - @admin_users.each do |admin_user|
       tr[style="background-color: #{cycle('#ddd', '#fff')}"]
+        - spaces_number = 2
         td = admin_user.name
         td = admin_user.email
         td = admin_user.role.name
+        td = stats_helper(admin_user, :events)
+        td = stats_helper(admin_user, :items)
+        td = stats_helper(admin_user, :comments)
         td = link_to "Edit", edit_admin_user_path(admin_user)
         td = link_to "Destroy", admin_user_path(admin_user), data: {confirm: "Are you sure?"}, method: :delete
 
@@ -24,3 +31,4 @@ br
 
 p
   = paginate @admin_users
+  

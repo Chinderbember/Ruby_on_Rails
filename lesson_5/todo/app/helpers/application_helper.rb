@@ -11,4 +11,8 @@ module ApplicationHelper
     end
     render inline: output, type: :slim
   end
+
+  def language_link_name
+    session[:locale] == I18n.default_locale.to_s ? 'EN' : 'RU'
+  end
 end

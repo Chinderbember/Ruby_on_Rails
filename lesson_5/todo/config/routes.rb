@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get :toggle, to: 'locales#toggle'
   namespace :admin do
     resources :roles
   end
@@ -27,7 +28,8 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
-  get 'about', to: 'about#index', as: 'about'
+  get 'about', to: 'about#index'
+
   get 'about/help', to: 'about#help', as: 'help'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -10,3 +10,6 @@ html
   body
     = render 'shared/header'
     = yield
+    p 
+      => link_to t('label.main_page'), root_path
+      =< link_to language_link_name, toggle_path

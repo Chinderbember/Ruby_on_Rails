@@ -2,18 +2,20 @@ doctype html
 html
   head
     title
-      | Система администрирования
+      = t('label.administration_system')
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    = link_to t('label.main_page'), root_path
+    = link_to t('label.new_users_control_panel'), admin_root_path
     '  |
-    = link_to 'Панель управления пользователями(новая)', admin_root_path
-    '  |
-    = link_to 'Панель управления ролями', admin_roles_path
+    = link_to t('label.roles_control_panel'), admin_roles_path
 
     = yield
+
+    p 
+      => link_to t('label.main_page'), root_path
+      =< link_to language_link_name, toggle_path
 

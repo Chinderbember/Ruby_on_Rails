@@ -1,9 +1,19 @@
 ru:
   label:
+    index: Список
+    new:   Создание
+    edit:  Редактирование
+    administration_system: Система администрирования
+    new_admin_panel: ___Новая__админка___
+    new_users_control_panel: Панель управления пользователями(новая)
+    roles_control_panel: Панель управления ролями
+    current_date: Текущая дата
+    visits: Посещений
     log_in: Вход
     log_out: Выход
     show: Просмотр
     back: Назад
+    # Русская локаль
     hello: Привет, %s!
     registration: Регистрация
     admin_panel: Панель управления пользователями и статистика
@@ -41,6 +51,8 @@ ru:
     index_admin_users_control:
       user_name: Имя пользователя
       total_events: Всего задач
+      total_items:  Всего подпунктов
+      total_comments: Всего комментариев
       events_done:  Задач выполнено
       events_not_done:  Задач не выполнено
   mailer:
@@ -62,4 +74,42 @@ ru:
           password_confirmation: Подтверждение
           email:                 Email
           name:                  Имя пользователя
-
+          role:                  Роль
+    models:
+      user: 
+        zero: пользователей
+        one: пользователь
+        few: пользователя
+        many: пользователей
+        other: пользователи
+        accusative: пользователя
+        nominative: пользователь
+        dative: пользователю
+      visit:
+        zero: посещений
+        one: посещение
+        few: посещения
+        many: посещений
+        other: посещения
+      event:
+        zero: событий
+        one: событие
+        few: события
+        many: событий
+        other: события
+      item:
+        zero: подпунктов
+        one: подпункт
+        few: подпункта
+        many: подпунктов
+        other: подпункты
+      comment:
+        zero: комментариев
+        one: комментарий
+        few: комментария
+        many: комментариев
+        other: комментарии
+  date:
+    formats:
+      default: '%d.%m.%Y'
+      database: '%Y-%m-%d'

@@ -9,7 +9,7 @@ module Admin
       @admin_users = policy_scope(
         User,
         policy_scope_class: Admin::UserPolicy::Scope
-      ).includes(:role).page(params[:page]).per(5)
+      ).includes(:role, :events, :items, :comments).page(params[:page]).per(5)
     end
 
     # GET /admin/users/new

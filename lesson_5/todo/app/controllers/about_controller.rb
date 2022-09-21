@@ -3,7 +3,10 @@
 class AboutController < ApplicationController
   before_action :log_start, :log_params, :log_finish, only: :index
 
-  def index; end
+  def index
+    session[:about_counter] ||= 0
+    session[:about_counter] += 1
+  end
 
   def help; end
 

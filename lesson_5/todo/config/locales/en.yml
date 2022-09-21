@@ -1,33 +1,114 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  label:
+    index: List of
+    new:   Creating
+    edit:  Updating
+    administration_system: Administration system
+    new_admin_panel: ___New__admin___panel
+    new_users_control_panel: Users control panel(new)
+    roles_control_panel: Roles control panel
+    current_date: Current date
+    visits: Visits
+    log_in: Log in
+    log_out: Log out
+    show: Show
+    back: Back
+    hello: Hello, %s!
+    registration: Registration
+    admin_panel: Admin panel
+    edit: Edit
+    delete: Delete
+    edit_account: Edit account
+    about_us: About us
+    main_page: Main page
+    help: Help
+    about_header: TODO-application for creating tasks.
+    index_admin_users_control_header: Users
+    index_task_header: Tasks
+    edit_user_header: Editing user
+    edit_task_header: Editing task
+    confirm: Confirm
+    confirm_account: Confirm account 
+    sign_up: Sign up
+    forgot_password?: Forgot your password?
+    name: Name
+    content: Description
+    done:  Done
+    items: Items
+    role: Role
+    new_event: Create new event
+    new_user: Create new user
+  page_messages:
+    help_page:
+      not_ready: This part is in development. Functionality is not realized.
+    about_page:
+      app_allows: App allows
+      point_fst: Create record about event, giving oppotunity to set name, description and date of event;
+      point_snd: Edit created earlier events (correct mistakes, date);
+      point_thd: Delete mistakenly made events;
+      point_fth: Mark done/not_done in event 
+    index_admin_users_control:
+      user_name: User's name 
+      total_events: Total events
+      total_items:  Total items
+      total_comments: Total comments
+      events_done:  Events done
+      events_not_done:  Events not done
+  mailer:
+    confirm_instructions:
+      statement_fst: You can confirm email, by following the link below
+  activerecord:
+    errors:
+      messages:
+        blank: nessesary to fill in
+        too_short: too short
+        record_invalid: Invalid record
+
+      models:
+        user: Users
+        post: Messages
+      attributes:
+        user:
+          password:              Password
+          password_confirmation: Confirmation
+          email:                 Email
+          name:                  User's name
+          role:                  Role
+    models:
+      user: 
+        zero: users
+        one: users
+        few: users
+        many: users
+        other: users
+        accusative: user
+        nominative: user
+        dative: user
+      visit:
+        zero: visits
+        one: visit
+        few: visits
+        many: visits
+        other: visits
+      event:
+        zero: events
+        one: event
+        few: events
+        many: events
+        other: events
+      item:
+        zero: items
+        one: item
+        few: items
+        many: items
+        other: items
+      comment:
+        zero: comments
+        one: comment
+        few: comments
+        many: comments
+        other: comments
+  date:
+    formats:
+      default: '%d.%m.%Y'
+      database: '%Y-%m-%d'
