@@ -1,5 +1,6 @@
 en:
   label:
+    wrong_email: Wrong email!
     index: List of
     new:   Creating
     edit:  Updating

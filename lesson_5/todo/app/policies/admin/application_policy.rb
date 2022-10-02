@@ -22,6 +22,10 @@ module Admin
       user.admin?
     end
 
+    def toggle?
+      user.admin?
+    end
+
     class Scope < Scope
       def resolve
         user.admin? ? scope.all : scope.none

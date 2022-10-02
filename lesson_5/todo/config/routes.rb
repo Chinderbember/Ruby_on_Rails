@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :roles
   end
-  namespace :admin do
-    root 'users#index'
-    resources :users
-  end
+  extend Routing
+  new_admin_panel
   patch '/admin_users_control/show/:id', to: 'users#update'
   get '/admin_users_control/show/:id', to: 'users#show', as: 'user'
   get '/admin_users_control/new', to: 'users#new', as: 'new_user'

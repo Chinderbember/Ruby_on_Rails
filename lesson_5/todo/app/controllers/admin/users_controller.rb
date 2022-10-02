@@ -2,7 +2,7 @@
 
 module Admin
   class UsersController < Admin::ApplicationController
-    before_action :set_admin_user, only: %i[edit update destroy]
+    before_action :set_admin_user, only: %i[edit update destroy toggle]
     # GET /admin/users or /admin/users.json
     def index
       authorize [:admin, User]
@@ -45,11 +45,12 @@ module Admin
     # DELETE /admin/users/1 or /admin/users/1.json
     def destroy
       @admin_user.destroy
+      render json: {}
+    end
 
-      respond_to do |format|
-        format.html { redirect_to admin_users_path, notice: 'User was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+    def toggle
+      @admin_user.update_column(:active, !@admin_user.active)
+      render json: {}
     end
 
     private

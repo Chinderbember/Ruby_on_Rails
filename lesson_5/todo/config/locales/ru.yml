@@ -1,5 +1,6 @@
 ru:
   label:
+    wrong_email: Неверный email!
     index: Список
     new:   Создание
     edit:  Редактирование
