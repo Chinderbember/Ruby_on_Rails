@@ -9,13 +9,16 @@
           li
             = error.full_message
   .field
-    = form.label :name, t('label.name')
-    = form.text_field :name
+    = form.label :name, t('label.name'), class: 'form-label'
+    = form.text_field :name, class: 'form-control'
   .field
-    = form.label :content, t('label.content')
-    = form.text_area :content
+    = form.label :content, t('label.content'), class: 'form-label'
+    = form.text_area :content, class: 'form-control'
   .field
-    = form.label :done, t('label.done')
-    = form.check_box :done
+    = form.label :done, t('label.done'), class: 'form-label'
+    = form.check_box :done, class: 'form-check-input'
+  .field
+    = form.label :finished_at, class: 'form-label'
+    = form.datetime_field :finished_at
   .actions
-    = form.submit t('label.confirm')
+    = form.submit t('label.confirm'), class: 'btn btn-secondary'

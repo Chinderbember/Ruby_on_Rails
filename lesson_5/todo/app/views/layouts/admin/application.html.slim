@@ -9,13 +9,17 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    = link_to t('label.new_users_control_panel'), admin_root_path
-    '  |
-    = link_to t('label.roles_control_panel'), admin_roles_path
 
-    = yield
+    .container
+      .row
 
-    p 
-      => link_to t('label.main_page'), root_path
-      =< link_to language_link_name, toggle_path
+        = link_to t('label.new_users_control_panel'), admin_root_path
+      
+        = link_to t('label.roles_control_panel'), admin_roles_path
+
+        = yield
+
+        p 
+          => link_to t('label.main_page'), root_path
+          =< link_to language_link_name, toggle_path
 

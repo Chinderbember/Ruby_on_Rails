@@ -2,14 +2,20 @@ p#notice
   = notice
 h1
   = t('label.index_task_header')
-table
+table.table.table-striped
   thead
     tr
-      th[colspan="3"]
+      th ID
+      th Дело
+      th
+
   tbody
     = render partial: 'event', collection: @events
 br
-= link_to t('label.new_event'), new_event_path
+
+= link_to new_event_path, class: "btn btn-secondary add-button fs-3" do
+  i.fa.fa-plus-circle aria-hidden="true"
+
 br
-br
+
 = paginate @events

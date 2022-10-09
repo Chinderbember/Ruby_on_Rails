@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :roles
   end
-  extend Routing
-  new_admin_panel
-  patch '/admin_users_control/show/:id', to: 'users#update'
-  get '/admin_users_control/show/:id', to: 'users#show', as: 'user'
-  get '/admin_users_control/new', to: 'users#new', as: 'new_user'
-  get '/admin_users_control/:id(.:format)', to: 'users#destroy', as: 'destroy_user'
-  resources :users, path: 'admin_users_control'
+
+  namespace :admin do
+    root 'users#index'
+    resources :users do
+      member do
+        post :toggle, action: :toggle
+      end
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'

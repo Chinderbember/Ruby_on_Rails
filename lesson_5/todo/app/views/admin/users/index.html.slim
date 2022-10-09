@@ -1,6 +1,6 @@
 h1 = action_title(User, action_name)
 
-table cellspacing='0'
+table.table.table-striped cellspacing='0'
   thead
     tr
       th = t('activerecord.errors.attributes.user.name')
@@ -19,7 +19,8 @@ table cellspacing='0'
 
 br
 
-= link_to "New User", new_admin_user_path
+= link_to new_admin_user_path, class: "btn btn-secondary fs-3" do 
+  i.fa.fa-plus-circle[aria-hidden="true"]
 
 p
   = paginate @admin_users

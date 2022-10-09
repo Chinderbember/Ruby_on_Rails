@@ -4,4 +4,5 @@ tr
   td
     = link_to event.name.truncate(80), event
   td
-    = link_to t('label.edit'), edit_event_path(event)
+    = link_to edit_event_path(event), class: 'btn button-secondary fs-3' do 
+      i.fa.fa-pencil-square aria-hidden="true"

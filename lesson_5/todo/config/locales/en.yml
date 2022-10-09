@@ -16,7 +16,6 @@ en:
     back: Back
     hello: Hello, %s!
     registration: Registration
-    admin_panel: Admin panel
     edit: Edit
     delete: Delete
     edit_account: Edit account
