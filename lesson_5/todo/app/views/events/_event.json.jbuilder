@@ -1,4 +1,10 @@
 # frozen_string_literal: true
 
-json.extract! event, :id, :created_at, :updated_at
-json.url event_url(event, format: :json)
+json.ignore_nil!
+json.extract! event, :id, :finished_at
+json.name truncate(event.name)
+json.content truncate(event.content)
+json.user do
+  json.name event.user.name
+  json.email event.user.email
+end

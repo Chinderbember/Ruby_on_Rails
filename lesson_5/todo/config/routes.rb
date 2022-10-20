@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RootApi => '/'
+
   get :toggle, to: 'locales#toggle'
   namespace :admin do
     resources :roles

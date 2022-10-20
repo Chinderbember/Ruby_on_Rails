@@ -7,6 +7,10 @@ ruby '3.1.2'
 
 gem 'font-awesome-rails'
 
+gem 'grape'
+
+gem 'grape-entity'
+
 gem 'bootstrap'
 
 gem 'jquery-rails'

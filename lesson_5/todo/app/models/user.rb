@@ -14,6 +14,15 @@ class User < ApplicationRecord
     end
   end
 
+  def attributes
+    super.select { |k, _v| %w[email name].include? k }
+         .merge(description:)
+  end
+
+  def description
+    "#{name} (#{email})"
+  end
+
   def active_for_authentication?
     super && active?
   end

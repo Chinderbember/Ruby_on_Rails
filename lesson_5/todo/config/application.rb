@@ -23,5 +23,6 @@ module Todo
 
     config.generators.system_tests = nil
     config.autoload_paths << Rails.root.join('lib')
+    config.paths.add Rails.root.join('app', 'api', 'helpers').to_s, eager_load: true
   end
 end
