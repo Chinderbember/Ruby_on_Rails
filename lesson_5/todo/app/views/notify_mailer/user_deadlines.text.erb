@@ -1,0 +1,4 @@
+<%= I18n.t('emails.content.time_is_ending') %>
+<% @ending_events.each do |event| %>
+  <%= link_to truncate(event.name), event_url(event) %>
+<% end %>

@@ -1,0 +1,6 @@
+en:
+  emails:
+    content:
+      time_is_ending: 'Not much time left for events below:'
+    subjects:
+      user_deadlines: There are uncomleted events, which have time for doing them ending today.
