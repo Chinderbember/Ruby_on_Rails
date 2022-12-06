@@ -13,6 +13,8 @@ require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
 module Todo
   class Application < Rails::Application
     config.load_defaults 6.1
@@ -23,6 +25,6 @@ module Todo
 
     config.generators.system_tests = nil
     config.autoload_paths << Rails.root.join('lib')
-    config.paths.add Rails.root.join('app', 'api', 'helpers').to_s, eager_load: true
+    config.paths.add Rails.root.join('app/api/helpers').to_s, eager_load: true
   end
 end

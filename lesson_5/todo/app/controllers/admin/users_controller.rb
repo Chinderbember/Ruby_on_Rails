@@ -49,7 +49,7 @@ module Admin
     end
 
     def toggle
-      @admin_user.update_column(:active, !@admin_user.active)
+      @admin_user.update(active: !@admin_user.active)
       render json: {}
     end
 

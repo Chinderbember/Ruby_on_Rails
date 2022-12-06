@@ -12,6 +12,6 @@ class NotifyMailer < ApplicationMailer
   end
 
   def ending_events(user)
-    user.events.select { |event| event.finished_at - Time.now < SECONDS_IN_DAY }
+    user.events.select { |event| event.finished_at - Time.zone.now < SECONDS_IN_DAY }
   end
 end

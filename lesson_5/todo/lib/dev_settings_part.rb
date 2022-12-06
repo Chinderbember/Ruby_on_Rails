@@ -14,7 +14,7 @@ module DevSettingsPart
   end
 
   def cache_settings_set
-    if Rails.root.join('tmp', 'caching-dev.txt').exist?
+    if Rails.root.join('tmp/caching-dev.txt').exist?
       cache_settings_if_actions
     else
       config.action_controller.perform_caching = false

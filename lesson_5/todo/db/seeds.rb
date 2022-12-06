@@ -23,7 +23,7 @@ User.create! name: 'Администратор',
              role: admin_role
 
 # rubocop:disable Style/HashSyntax
-hash_users = 10.times.map do
+hash_users = Array.new(10) do
   email = FFaker::Internet.safe_email
   {
     name: FFaker::Internet.user_name[0..15],
@@ -36,17 +36,17 @@ end
 
 users = User.create! hash_users
 
-hash_events = 20.times.map do
+hash_events = Array.new(20) do
   {
     name: FFaker::HipsterIpsum.paragraph,
     content: FFaker::HipsterIpsum.paragraphs,
     user: users.sample,
-    finished_at: Time.now + NotifyMailer::SECONDS_IN_DAY * rand(1..2)
+    finished_at: Time.zone.now + NotifyMailer::SECONDS_IN_DAY * rand(1..2)
   }
 end
 
 events = Event.create! hash_events
-hash_items = 200.times.map do
+hash_items = Array.new(200) do
   {
     name: FFaker::HipsterIpsum.paragraph,
     event: events.sample
@@ -54,7 +54,7 @@ hash_items = 200.times.map do
 end
 Item.create! hash_items
 
-hash_comments = 200.times.map do
+hash_comments = Array.new(200) do
   commentable = (rand(2) == 1 ? events : users).sample
   {
     content: FFaker::HipsterIpsum.paragraphs,

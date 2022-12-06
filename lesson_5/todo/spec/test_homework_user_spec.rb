@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Класс TestHomework::User' do
   let(:n) { 100 }
 
-  let(:attributes) do
-    %i[surname name patronymic email]
-  end
+  let(:attributes) { %i[surname name patronymic email] }
 
   def test_homework_users_and_values
-    values_arr = []
-    users_arr = []
+    values_arr = users_arr = []
     n.times do |counter|
       values_arr << attributes.map { |el| "test_#{el}#{counter + 1}" }
       users_arr << TestHomework::User.new(*values_arr.last)
@@ -29,14 +25,12 @@ RSpec.describe 'Класс TestHomework::User' do
       attributes.size.times do |attr_counter|
         value_fst = users_arr.map(&attributes[attr_counter])[user_counter]
         value_snd = values_arr.dig(user_counter, attr_counter)
-        condition = (value_fst == value_snd)
-        conditions_arr << condition
+        conditions_arr << (value_fst == value_snd)
       end
 
       test_arr << conditions_arr.all?
     end
 
-    expect(test_arr.all?).to be_truthy
+    expect(test_arr).to be_all
   end
 end
-# rubocop:enable Metrics/BlockLength

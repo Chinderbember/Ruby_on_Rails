@@ -2,6 +2,7 @@
 
 class AddDeviseToUsers < ActiveRecord::Migration[6.1]
   def self.up
+    # rubocop:disable Rails/BulkChangeTable
     change_table :users do |t|
       ## Database authenticatable
       t.string :encrypted_password, null: false, default: ''
@@ -16,6 +17,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
       ## Trackable
       add_trackable_fields(t)
     end
+    # rubocop:enable Rails/BulkChangeTable
 
     add_index :users, :reset_password_token, unique: true
   end
