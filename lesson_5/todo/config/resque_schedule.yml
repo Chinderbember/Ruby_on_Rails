@@ -1,0 +1,9 @@
+NotifyUsersAboutDeadlinesJob:
+  cron: "* * * * *"
+  class: ActiveJob::QueueAdapters::ResqueAdapter::JobWrapper
+  queue: default
+  description: "Migrate click stats from the write table to the read table"
+  args:
+    job_class:  NotifyUsersAboutDeadlinesJob
+    queue_name: default
+    arguments: []
